@@ -22,6 +22,7 @@ public class SigilofExplosion extends DeffPackage {
       if(LloydMod.hotPrizeEnabled) {
         LloydMod.hotPrizeMenu = new LloydHotPrizeMenu(8, 360, 1250);
         LloydMod.menuStack.pushScreen(LloydMod.hotPrizeMenu);
+        LloydMod.hotPrizeActivated = true;
       }
 
       ((Battle)currentEngineState_8004dd04).loadDeff(

@@ -118,6 +118,7 @@ public class LloydMod {
   public static final MenuStack menuStack = new MenuStack();
   public static LloydHotPrizeMenu hotPrizeMenu;
   public static boolean hotPrizeEnabled = true;
+  public static boolean hotPrizeActivated = true;
 
   public int addLloydEarly = 0;
 
@@ -369,6 +370,7 @@ public class LloydMod {
   public void onBattleEntityTurnStart(final BattleEntityTurnEvent event) {
     if(event.bent instanceof final PlayerBattleEntity player && player.character.template instanceof LloydTemplate) {
       lloydUsedSpell = null;
+      hotPrizeActivated = false;
       this.gainedSp = false;
       this.gainedMp = false;
 
@@ -394,7 +396,7 @@ public class LloydMod {
     }
 
     if(event.attacker instanceof final PlayerBattleEntity player && player.character.template instanceof LloydTemplate) {
-      if(hotPrizeEnabled) {
+      if(hotPrizeEnabled && hotPrizeActivated) {
         event.damage = (int)Math.floor(event.damage * (0.50d + (((double)hotPrizeMenu.completedPrizes / (double)hotPrizeMenu.maxPrizes) * 0.5d)));
       }
 

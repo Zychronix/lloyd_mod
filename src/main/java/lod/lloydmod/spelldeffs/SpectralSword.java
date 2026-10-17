@@ -23,6 +23,7 @@ public class SpectralSword extends DeffPackage {
       if(LloydMod.hotPrizeEnabled) {
         LloydMod.hotPrizeMenu = new LloydHotPrizeMenu(4, 160, 160);
         LloydMod.menuStack.pushScreen(LloydMod.hotPrizeMenu);
+        LloydMod.hotPrizeActivated = true;
       }
 
       ((Battle)currentEngineState_8004dd04).loadDeff(
